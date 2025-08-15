@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindfulSaathi - Your Mental Wellness Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🌱 MindfulSaathi</h1>
+                    <p class="tagline">मानसिक कल्याण का साथी</p>
+                </div>
+                <div class="language-toggle">
+                    <button class="btn btn--outline btn--sm" id="languageToggle">हिंदी</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Landing Section -->
+    <section class="hero" id="landing">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title" data-en="Your Safe Space for Mental Wellness" data-hi="मानसिक स्वास्थ्य के लिए आपका सुरक्षित स्थान">Your Safe Space for Mental Wellness</h2>
+                <p class="hero-subtitle" data-en="Confidential, AI-powered mental health support designed for Indian youth. No judgment, just understanding." data-hi="भारतीय युवाओं के लिए डिज़ाइन किए गए गोपनीय, AI-संचालित मानसिक स्वास्थ्य सहायता। कोई जजमेंट नहीं, सिर्फ समझ।">Confidential, AI-powered mental health support designed for Indian youth. No judgment, just understanding.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn--primary btn--lg" id="startChatBtn" data-en="Start Anonymous Chat" data-hi="गुमनाम चैट शुरू करें">Start Anonymous Chat</button>
+                    <button class="btn btn--secondary btn--lg" id="learnMoreBtn" data-en="Learn More" data-hi="और जानें">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/638f3b6b-c6eb-4359-9787-8ae01a85af63.png" alt="Mobile app interface mockup" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h3 data-en="Mental Health in India" data-hi="भारत में मानसिक स्वास्थ्य">Mental Health in India</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">7.3%</div>
+                    <p data-en="of 365 million Indian youth report mental health issues" data-hi="36.5 करोड़ भारतीय युवाओं में से मानसिक स्वास्थ्य समस्याओं की रिपोर्ट">of 365 million Indian youth report mental health issues</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">80-92%</div>
+                    <p data-en="treatment gap for mental health disorders" data-hi="मानसिक स्वास्थ्य विकारों के लिए उपचार का अंतर">treatment gap for mental health disorders</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">43%</div>
+                    <p data-en="of students experience mood swings post-COVID" data-hi="छात्र कोविड के बाद मूड स्विंग्स का अनुभव करते हैं">of students experience mood swings post-COVID</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main App Interface (Hidden Initially) -->
+    <div class="app-interface hidden" id="appInterface">
+        <!-- Navigation -->
+        <nav class="app-nav">
+            <div class="container">
+                <div class="nav-items">
+                    <button class="nav-btn active" data-section="chat" data-en="Chat" data-hi="चैट">Chat</button>
+                    <button class="nav-btn" data-section="mood" data-en="Mood" data-hi="मूड">Mood</button>
+                    <button class="nav-btn" data-section="resources" data-en="Resources" data-hi="संसाधन">Resources</button>
+                    <button class="nav-btn" data-section="community" data-en="Community" data-hi="समुदाय">Community</button>
+                    <button class="nav-btn" data-section="crisis" data-en="Crisis" data-hi="संकट">Crisis</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Chat Section -->
+        <section class="app-section active" id="chat">
+            <div class="container">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h3 data-en="Chat with Saathi" data-hi="साथी से चैट करें">Chat with Saathi</h3>
+                        <div class="status-indicator">
+                            <span class="status status--success" data-en="Online" data-hi="ऑनलाइन">Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ai-message">
+                            <div class="message-content" data-en="Namaste! I'm Saathi, your confidential mental wellness companion. How are you feeling today?" data-hi="नमस्ते! मैं साथी हूं, आपका गोपनीय मानसिक कल्याण साथी। आज आप कैसा महसूस कर रहे हैं?">Namaste! I'm Saathi, your confidential mental wellness companion. How are you feeling today?</div>
+                        </div>
+                    </div>
+                    <div class="quick-responses">
+                        <button class="quick-btn" data-response="academic" data-en="Academic Pressure" data-hi="शैक्षणिक दबाव">Academic Pressure</button>
+                        <button class="quick-btn" data-response="family" data-en="Family Issues" data-hi="पारिवारिक समस्याएं">Family Issues</button>
+                        <button class="quick-btn" data-response="career" data-en="Career Anxiety" data-hi="करियर की चिंता">Career Anxiety</button>
+                        <button class="quick-btn" data-response="social" data-en="Social Pressure" data-hi="सामाजिक दबाव">Social Pressure</button>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" class="form-control" id="messageInput" placeholder="Type your message..." data-placeholder-en="Type your message..." data-placeholder-hi="अपना संदेश टाइप करें...">
+                        <button class="btn btn--primary" id="sendBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mood Tracking Section -->
+        <section class="app-section" id="mood">
+            <div class="container">
+                <div class="mood-container">
+                    <h3 data-en="Mood Check-in" data-hi="मूड चेक-इन">Mood Check-in</h3>
+                    <div class="mood-selector">
+                        <div class="mood-options">
+                            <button class="mood-btn" data-mood="5" data-label="Khushi (Happy)">😊</button>
+                            <button class="mood-btn" data-mood="4" data-label="Accha (Good)">🙂</button>
+                            <button class="mood-btn" data-mood="3" data-label="Theek (Okay)">😐</button>
+                            <button class="mood-btn" data-mood="2" data-label="Udaas (Sad)">😔</button>
+                            <button class="mood-btn" data-mood="1" data-label="Pareshan (Anxious)">😰</button>
+                        </div>
+                        <button class="btn btn--primary" id="saveMoodBtn" data-en="Save Mood" data-hi="मूड सेव करें">Save Mood</button>
+                    </div>
+                    <div class="mood-chart-container" style="position: relative; height: 300px;">
+                        <canvas id="moodChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="app-section" id="resources">
+            <div class="container">
+                <h3 data-en="Cultural Wellness Library" data-hi="सांस्कृतिक कल्याण पुस्तकालय">Cultural Wellness Library</h3>
+                <div class="resources-grid">
+                    <div class="card">
+                        <div class="card__body">
+                            <h4 data-en="Dharma and Mental Peace" data-hi="धर्म और मानसिक शांति">Dharma and Mental Peace</h4>
+                            <p data-en="Understanding duty and mental well-being through ancient wisdom" data-hi="प्राचीन ज्ञान के माध्यम से कर्तव्य और मानसिक कल्याण को समझना">Understanding duty and mental well-being through ancient wisdom</p>
+                            <button class="btn btn--outline btn--sm" data-en="Read More" data-hi="और पढ़ें">Read More</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__body">
+                            <h4 data-en="Festival Blues" data-hi="त्योहारी उदासी">Festival Blues</h4>
+                            <p data-en="Managing pressure during festivals and celebrations" data-hi="त्योहारों और उत्सवों के दौरान दबाव का प्रबंधन">Managing pressure during festivals and celebrations</p>
+                            <button class="btn btn--outline btn--sm" data-en="Read More" data-hi="और पढ़ें">Read More</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__body">
+                            <h4 data-en="Joint Family Dynamics" data-hi="संयुक्त परिवार की गतिशीलता">Joint Family Dynamics</h4>
+                            <p data-en="Balancing individual needs with family harmony" data-hi="पारिवारिक सामंजस्य के साथ व्यक्तिगत जरूरतों का संतुलन">Balancing individual needs with family harmony</p>
+                            <button class="btn btn--outline btn--sm" data-en="Read More" data-hi="और पढ़ें">Read More</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__body">
+                            <h4 data-en="Guided Meditation (Hindi)" data-hi="निर्देशित ध्यान">Guided Meditation (Hindi)</h4>
+                            <p data-en="10-minute breathing exercises in Hindi" data-hi="हिंदी में 10 मिनट के श्वास अभ्यास">10-minute breathing exercises in Hindi</p>
+                            <button class="btn btn--primary btn--sm" data-en="Start" data-hi="शुरू करें">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section class="app-section" id="community">
+            <div class="container">
+                <h3 data-en="Peer Community" data-hi="साथियों का समुदाय">Peer Community</h3>
+                <div class="community-posts">
+                    <div class="post-card card">
+                        <div class="card__body">
+                            <div class="post-header">
+                                <strong>Student_Mumbai</strong>
+                                <span class="post-time">2h ago</span>
+                            </div>
+                            <p data-en="Anyone else feeling pressure about career choices? My family wants engineering but I love art." data-hi="क्या कोई और भी करियर चुनने के बारे में दबाव महसूस कर रहा है? मेरा परिवार इंजीनियरिंग चाहता है लेकिन मुझे कला पसंद है।">Anyone else feeling pressure about career choices? My family wants engineering but I love art.</p>
+                            <div class="post-actions">
+                                <span>❤️ 28</span>
+                                <span>💬 12 replies</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card card">
+                        <div class="card__body">
+                            <div class="post-header">
+                                <strong>CollegeLife_Delhi</strong>
+                                <span class="post-time">5h ago</span>
+                            </div>
+                            <p data-en="Tips for managing social anxiety during college events?" data-hi="कॉलेज इवेंट्स के दौरान सामाजिक चिंता को प्रबंधित करने के लिए सुझाव?">Tips for managing social anxiety during college events?</p>
+                            <div class="post-actions">
+                                <span>❤️ 15</span>
+                                <span>💬 8 replies</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Crisis Support Section -->
+        <section class="app-section" id="crisis">
+            <div class="container">
+                <h3 data-en="Crisis Support" data-hi="संकट सहायता">Crisis Support</h3>
+                <div class="crisis-alert">
+                    <p data-en="If you're having thoughts of self-harm, please reach out immediately:" data-hi="यदि आपके मन में खुद को नुकसान पहुंचाने के विचार आ रहे हैं, तो तुरंत संपर्क करें:">If you're having thoughts of self-harm, please reach out immediately:</p>
+                </div>
+                <div class="helplines">
+                    <div class="helpline-card card">
+                        <div class="card__body">
+                            <h4>Tele-MANAS</h4>
+                            <p data-en="24x7 tele-mental health service" data-hi="24x7 टेली-मानसिक स्वास्थ्य सेवा">24x7 tele-mental health service</p>
+                            <a href="tel:14416" class="btn btn--primary">📞 14416</a>
+                        </div>
+                    </div>
+                    <div class="helpline-card card">
+                        <div class="card__body">
+                            <h4>iCall</h4>
+                            <p data-en="Counseling helpline" data-hi="काउंसलिंग हेल्पलाइन">Counseling helpline</p>
+                            <a href="tel:9152987821" class="btn btn--primary">📞 9152987821</a>
+                        </div>
+                    </div>
+                    <div class="helpline-card card">
+                        <div class="card__body">
+                            <h4>Vandrevala Foundation</h4>
+                            <p data-en="24x7 free counseling" data-hi="24x7 मुफ्त काउंसलिंग">24x7 free counseling</p>
+                            <a href="tel:9999666555" class="btn btn--primary">📞 9999666555</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h3 data-en="What Users Say" data-hi="उपयोगकर्ता क्या कहते हैं">What Users Say</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial-card card">
+                    <div class="card__body">
+                        <p data-en="MindfulSaathi helped me understand that seeking help is strength, not weakness." data-hi="मिंडफुलसाथी ने मुझे यह समझने में मदद की कि मदद मांगना कमजोरी नहीं, ताकत है।">"MindfulSaathi helped me understand that seeking help is strength, not weakness."</p>
+                        <div class="testimonial-author">
+                            <strong>- Anonymous Student, Bangalore</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card card">
+                    <div class="card__body">
+                        <p data-en="The cultural understanding in the conversations made me feel truly heard." data-hi="बातचीत में सांस्कृतिक समझ ने मुझे वास्तव में सुना गया महसूस कराया।">"The cultural understanding in the conversations made me feel truly heard."</p>
+                        <div class="testimonial-author">
+                            <strong>- Anonymous User, Mumbai</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>MindfulSaathi</h4>
+                    <p data-en="Your trusted companion for mental wellness" data-hi="मानसिक कल्याण के लिए आपका भरोसेमंद साथी">Your trusted companion for mental wellness</p>
+                </div>
+                <div class="footer-section">
+                    <h5 data-en="Privacy" data-hi="गोपनीयता">Privacy</h5>
+                    <p data-en="All conversations are anonymous and encrypted" data-hi="सभी बातचीत गुमनाम और एन्क्रिप्टेड हैं">All conversations are anonymous and encrypted</p>
+                </div>
+                <div class="footer-section">
+                    <h5 data-en="Support" data-hi="सहायता">Support</h5>
+                    <p data-en="Available 24/7 for your mental wellness journey" data-hi="आपकी मानसिक कल्याण यात्रा के लिए 24/7 उपलब्ध">Available 24/7 for your mental wellness journey</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
