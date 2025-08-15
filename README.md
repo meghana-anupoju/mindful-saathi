@@ -67,7 +67,7 @@ This project is licensed under the MIT License.
 ## Contact
 
 For any questions or collaboration inquiries, please contact:  
-**Your Name** – your.email@example.com
+**Your Name** – anupojumeghana9305@gmail.com
 
 ---
 
