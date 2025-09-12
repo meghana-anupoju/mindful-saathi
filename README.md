@@ -23,7 +23,7 @@ This project was built as a submission for the Hack2Skills Gen AI Exchange Hacka
 ## Demo
 
 Access the live demo here:  
-[MindfulSaathi Live Demo](https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/69057618252a7ce85b0da0df40f544ff/34ccd10a-1d98-4681-8921-335ec5a1d8bc/index.html)
+[MindfulSaathi Live Demo](file:///C:/Users/anupo/OneDrive/Desktop/mindful-saathi/index.html)
 
 ---
 
